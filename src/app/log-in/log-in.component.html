@@ -1,19 +1,48 @@
-<div class="flex flex-column md:flex-row" style="padding: 50px;">
-    <div class="w-full md:w-5 flex flex-column align-items-center justify-content-center gap-3 py-5">
-        <div class="flex flex-wrap justify-content-center align-items-center gap-2">
-            <label class="w-6rem">Username</label>
-            <input pInputText id="username" type="text" class="w-12rem" />
+<app-nav-bar></app-nav-bar>
+<form class=" login-form w-50 border shadow m-auto p-4 " 
+#loginForm="ngForm"
+(ngSubmit) = "handleForm(loginForm)">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" name="email" id="email" class="form-control"
+    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+    required
+    [(ngModel)] = "formValues.email"
+    #email = "ngModel"
+    >
+    @if(email.invalid && (email.touched || email.dirty) ) {
+        <div id="emailHelp" class="form-text text-danger">
+            @if(email.errors?.['required']){
+            <small>This field is required</small>
+            } 
+            @if(email.errors?.['pattern']){
+            <small>Invalid Email Format.</small>
+            }
         </div>
-        <div class="flex flex-wrap justify-content-center align-items-center gap-2">
-            <label class="w-6rem">Password</label>
-            <input pInputText id="password" type="password" class="w-12rem" />
+    }
+    <br>
+    <label for="password" class="form-label">Password</label>
+    <input type="password" name="password" id="password" class="form-control"
+    required
+    minlength="8"
+    maxlength="30"
+    [(ngModel)] = "formValues.password"
+    #password = "ngModel"
+    >
+    @if(password.invalid && (password.touched || password.dirty) ) {
+        <div id="passwordHelp" class="form-text text-danger">
+          @if(password.errors?.['required']){
+            <small>This field is required</small>
+          } 
+          @if(password.errors?.['minlength']) {
+            <small>Min. length is 8 characters</small>
+          } 
+          @if(password.errors?.['maxlength']) {
+            <small>Max. length is 30 character</small>
+          }
         </div>
-        <p-button label="Login" icon="pi pi-user" styleClass="w-10rem mx-auto"></p-button>
-    </div>
-    <div class="w-full md:w-2">
-        <p-divider layout="horizontal" styleClass="flex md:hidden" [align]="'center'"><b>OR</b></p-divider>
-    </div>
-    <div class="w-full md:w-5 flex align-items-center justify-content-center py-5">
-        <p-button label="Sign Up" icon="pi pi-user-plus" styleClass="p-button-success w-10rem"></p-button>
-    </div>
-</div>
+        }
+    <br>
+    <button type="submit" class="btn btn-primary w-100" [disabled]="!loginForm.valid">Login</button><br>
+    <span style="font-size: 12px;">Don't have an account? <a routerLink="/register">Register</a></span>
+
+</form>
