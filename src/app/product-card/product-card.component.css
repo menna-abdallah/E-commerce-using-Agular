@@ -1,0 +1,16 @@
+p-button{
+ width: 100px;
+ padding: 0px;
+ font-size: 12px;
+ font-weight: smaller;
+}
+.info{
+    margin-right: 10px;
+}
+.cover{
+    background-color: black;
+}
+img:hover{
+    opacity: 0.4;
+}
+

@@ -11,3 +11,15 @@
     color: rgb(87, 81, 154);
     background-color:rgb(226, 204, 204);
 }
+.container{
+    background-color: rgba(238, 226, 226, 0.365);
+    border-radius: 2px;
+}
+.cover{
+    background-color: black;
+    display: none;
+}
+.cover:hover{
+    display: block;
+    opacity: 0.4;
+}

@@ -1,15 +1,26 @@
-<p-card header="catecory , title , , price" [style]="{ width: '300px' }">
-    <ng-template pTemplate="header">
-        <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
-        <img alt="Card" src="https://primefaces.org/cdn/primeng/images/usercard.png" />
+@if(currentproduct){
+  
+    <p-card  [header]="currentproduct.category +   '   -   ' + currentproduct.price + ' $' " 
+    [ngStyle]="{'width':'300px' ,'height':'auto', 'font-size':'12px' , 'font-weight':'smaller' , 'position' : 'relative'}">
+        <ng-template pTemplate="header">
+            <p-button *ngIf="currentproduct.stock > 0; else outBtn" label="In Stock" icon="pi pi-check" styleClass="p-button-success" ></p-button>
+            <ng-template #outBtn>
+                <p-button label="Out Stock" icon="pi pi-times" styleClass="p-button-secondary" [style]="{ 'background-color': 'red' }"></p-button>
+            </ng-template> 
+            <div class="cover">
+            <img alt="Card" [src]="currentproduct.thumbnail" [ngStyle]="{'height':'250px'}"/>
+        </div>           
     </ng-template>
-    <p>
-        description
+    <p style="height: 50px;">
+        {{currentproduct.description.slice(1,50)}}
     </p>
-    <p>
-        rating
-    </p>
+    
+    <p-rating [(ngModel)]="currentproduct.rating" [readonly]="true" [cancel]="false" [ngStyle]="{'height' : '50px'}"> </p-rating>
+    
     <ng-template pTemplate="footer">
-        <p-button label="add" icon="pi pi-check"></p-button>
-    </ng-template>
-</p-card>
+            <p-button class = "info" label="Show Details" icon="pi pi-search" severity="info"  (click)="ShowDetails(currentproduct.id , currentproduct.title)"></p-button>
+            <p-button label="add To Cart" icon="pi pi-bookmark" severity="warning"></p-button>
+        </ng-template>
+    </p-card>
+
+}
