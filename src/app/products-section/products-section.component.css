@@ -1,0 +1,13 @@
+.show{
+    text-align: center;
+    justify-content: center;
+    margin-left: 40%;
+    padding: 10px;
+    border-radius: 25px;
+    color: rgb(182, 181, 194);
+
+}
+.show:hover{
+    color: rgb(87, 81, 154);
+    background-color:rgb(226, 204, 204);
+}
