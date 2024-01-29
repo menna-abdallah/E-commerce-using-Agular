@@ -1,9 +1,7 @@
-.nav {
-    background-color: rgb(211, 210, 210);
-}
-.navElement {
-    text-decoration: none;
+.nav{
+    height: 50px;
+    padding: 5px;
 }
 .is-active {
-    color: blue !important;
+    color: rgb(255, 255, 255) !important;
 }

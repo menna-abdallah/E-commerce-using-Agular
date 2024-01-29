@@ -1,1 +1,22 @@
-<app-nav-bar></app-nav-bar>
+@if (products) {
+    <div class="w-100 h-25">
+	<ngb-carousel class="z-0">
+		
+        @for(product of products ; track $index/2){
+		<ng-template ngbSlide>
+			<div class="picsum-img-wrapper bg-black ">
+				<img [src]="product.thumbnail" alt="Random first slide" style="width: 100%; height:600px; object-fit:fill; opacity: 0.4;" />
+			</div>
+			<div class="carousel-caption align-content-center ">
+				<h3 style="color: rgb(187, 169, 147);">Explore Your shopping wolrld</h3>
+				<p style="color: rgb(128, 249, 209); font-size: larger;">{{product.title}}</p>
+			</div>
+		</ng-template>
+    }
+	</ngb-carousel>
+</div>
+}
+
+
+
+

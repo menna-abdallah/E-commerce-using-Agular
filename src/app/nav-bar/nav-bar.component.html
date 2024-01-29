@@ -1,10 +1,42 @@
-<div class="p-4 d-flex nav">
-    <a class="text-success me-auto navElement" routerLink="" routerLinkActive="is-active" 
-    [routerLinkActiveOptions]="{exact: true}">Products App</a>
-    <a class="me-4 navElement text-black" routerLink="register" routerLinkActive="is-active"
-    [routerLinkActiveOptions]="{exact: true}">Register</a>
-    <a class="navElement text-black me-4" routerLink="login" routerLinkActive="is-active"
-    [routerLinkActiveOptions]="{exact: true}">Login</a>
-    <a><i class="fas fa-shopping-cart"></i></a>
-</div>
-
+<nav class="navbar navbar-expand-lg fixed-top bg-dark p-2 shadow-sm">
+    <div class="container">
+        <a class="navbar-brand text-white" routerLink="/" routerLinkActive="is-active" 
+        [routerLinkActiveOptions]="{exact: true}"> <img src="https://c8.alamy.com/comp/2C5HDAY/online-shop-logo-design-vector-illustrtaion-mobile-online-shopping-logo-vector-template-2C5HDAY.jpg" style="width: 50px;height: 50px; border-radius: 50%; margin-right:6px;"> 
+        <strong>shopyii</strong>
+    </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto ">
+          <li class="nav-item">
+            <a class="nav-link mx-2 text-uppercase text-white-50" routerLink="/" routerLinkActive="is-active" 
+            [routerLinkActiveOptions]="{exact: true}">
+            Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2 text-uppercase text-white-50" routerLink="all-products" routerLinkActive="is-active" 
+            [routerLinkActiveOptions]="{exact: true}">
+            All Products
+        </a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto ">
+          <li class="nav-item">
+            <a class="nav-link mx-2 text-uppercase text-white-50" routerLink="login" routerLinkActive="is-active" 
+            [routerLinkActiveOptions]="{exact: true}">
+             Login
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2 text-uppercase text-white-50" routerLink="register" routerLinkActive="is-active" 
+            [routerLinkActiveOptions]="{exact: true}">
+             <i class="fa-solid fa-circle-user me-1"></i> 
+             Register
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
