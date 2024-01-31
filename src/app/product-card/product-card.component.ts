@@ -32,15 +32,15 @@ export class ProductCardComponent {
     .subscribe((value) => (this.counter = value));
   }
 
+  increaseCounter() {
+    this.counterService.updateCounter(this.counter + 1);
+  }
 
   ShowDetails(id:string , name:string){
     this.router.navigate(['/product-details' , id , name])
 
   }
 
-  increaseCounter() {
-    this.counterService.updateCounter(this.counter + 1);
-  }
 }
 
 

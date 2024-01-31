@@ -1,9 +1,10 @@
 import { Component , OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductCardComponent } from '../product-card/product-card.component';
-import products from '../../assets/products-list.json';
-import { MyProducts } from '../interfaces/my-products';
+//import products from '../../assets/products-list.json';
+//import { MyProducts } from '../interfaces/my-products';
 import { Router, RouterLink } from '@angular/router';
+import { ProductRequestsService } from '../services/product-request.service';
 
 
 @Component({
@@ -15,9 +16,11 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class ProductsSectionComponent {
 
-  products: Array<MyProducts> = products;
-
-  constructor(private router : Router){}
+  products !: any;
+  constructor(private router : Router , private productRequest:ProductRequestsService){}
+  ngOnInit(){
+    this.productRequest.getProducts().subscribe((res : any) =>this.products = res["products"] )
+  }
 
   ShowMore(){
     this.router.navigate(['all-products'])

@@ -5,6 +5,8 @@ import products from '../../assets/products-list.json';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { NgStyle , NgIf  } from '@angular/common';
 import { RatingComponent } from '../rating/rating.component';
+import { ProductRequestsService } from '../services/product-request.service';
+import { error } from 'console';
 
 
 
@@ -18,7 +20,7 @@ import { RatingComponent } from '../rating/rating.component';
 })
 
 export class ProductDetailsComponent {
-  constructor(private activeRoute : ActivatedRoute ){
+  constructor(private activeRoute : ActivatedRoute , private productrequest : ProductRequestsService ){
      
   }
 
@@ -29,6 +31,7 @@ export class ProductDetailsComponent {
 
   ngOnInit()
   {
+    this.productrequest.getDetails(this.id).subscribe((res : any)=> this.productdetail = res , (error)=>alert(error))
    this.productdetail = this.products.find((product : any) => product.id == this.id);
 
    if (this.productdetail) {
