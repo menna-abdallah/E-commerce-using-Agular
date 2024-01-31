@@ -16,7 +16,10 @@
     <p style="height: 50px;">
         {{currentproduct.description.slice(1,50)}}
     </p>
-    
+    <!--  
+    <app-rating [rating]="currentproduct?.rating"></app-rating>
+    -->
+   
     <p-rating [(ngModel)]="currentproduct.rating" [readonly]="true" [cancel]="false" [ngStyle]="{'height' : '50px'}"> </p-rating>
     
     <ng-template pTemplate="footer">

@@ -5,7 +5,7 @@ import { ProductsSectionComponent } from '../products-section/products-section.c
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent , ProductsSectionComponent],
+  imports: [HeaderComponent , ProductsSectionComponent ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

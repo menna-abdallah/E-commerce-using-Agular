@@ -1,3 +1,105 @@
-<app-nav-bar></app-nav-bar>
+<div class=" container w-50 h-75 bg-black bg-opacity-10 p-5 mt-5 rounded-3">
 
-<p>register works!</p>
+<form [formGroup]="registeration" (ngSubmit)="register()">
+    <h2 class="m-auto ">Create an account</h2>
+
+<!-- name-->
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" name = "name" formControlName="name"
+        class="form-control p-1" id="name" aria-describedby="emailHelp">
+
+        @if(registeration.controls['name'].invalid &&
+     (registeration.controls['name'].touched || registeration.controls['name'].dirty)) {
+        <div id="nameHelp" class="form-text text-danger">
+            @if(registeration.controls['name'].errors?.['required']){
+            <small>This field is required</small>
+            } 
+        </div>
+    }
+    </div>
+    <br>
+
+    <!-- email -->
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" name = "email" formControlName="email" class="form-control p-1" id="email" aria-describedby="emailHelp">
+      @if(registeration.controls['email'].invalid &&(registeration.controls['email'].touched || registeration.controls['email'].dirty)) {
+        <div id="emailHelp" class="form-text text-danger">
+            @if(registeration.controls['email'].errors?.['required']){
+            <small>This field is required</small>
+            } @if(registeration.controls['email'].errors?.['pattern']) {
+            <small>Invalid Format</small>
+            }
+        </div>
+    }
+</div>
+    <br>
+
+    <!-- user name -->
+
+    <div class="mb-3">
+        <label for="u-name" class="form-label">User Name</label>
+        <input type="tex" name = "usname" formControlName="usname" class="form-control p-1" id="u-name" aria-describedby="emailHelp">
+        @if(registeration.controls['usname'].invalid && registeration.controls['usname'].touched )
+        {
+        <div> 
+            @if(registeration.controls['usname'].errors?.['required'])
+                { <small>User Name Required</small>}
+            @else if(registeration.controls['usname'].errors?.['spaced'])   
+                {<small>User Name is spaced</small>}
+            @else if (registeration.controls['usname'].errors?.['minLength']) 
+                { <small>name length is less than 8</small> }
+            @else if (registeration.controls['usname'].errors?.['maxLength']) 
+                {<small>name length is more than 20</small>}
+        </div>
+        }
+    </div>
+       
+       <br>      
+
+       <!--password-->
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" name = "password " formControlName="password" class="form-control p-1" id="password">
+
+      @if(registeration.controls['password'].invalid &&
+     (registeration.controls['password'].touched || registeration.controls['password'].dirty)) {
+        <div id="passwordHelp" class="form-text text-danger">
+            @if(registeration.controls['password'].errors?.['required']){
+            <small>This field is required</small>
+            } 
+            @if(registeration.controls['password'].errors?.['minlength']){
+            <small>Min. 8 characters</small>
+            }
+            @else if(registeration.controls['password'].errors?.['pattern']) {
+            <small>Invalid Format</small>
+            }
+        </div>
+    }
+</div>
+    <br>
+
+    <!-- confirm password -->
+
+    <div class="mb-3">
+        <label for="cpassword" class="form-label">Confirm Password</label>
+        <input type="password" name = " cpassword" formControlName="cpassword" class="form-control p-1" id="cpassword">
+        @if(registeration.controls['cpassword'].invalid && registeration.controls['cpassword'].touched){
+            <div>
+                @if(registeration.controls['cpassword'].errors?.['required']){    
+                    <small>Confirm Password is Required</small>}
+                    <br>
+                @if(registeration.errors?.['NoMatch']){ 
+                    <small> Passwords doesn't match</small>}
+            </div>
+        }
+    </div>
+
+    <button type="submit" class="btn btn-success m-3 p-2" (click)="login()">Register</button>
+    <br>
+    <span>Already have an account</span>
+    <a href="/login"> Log In </a>
+  </form>
+
+</div>

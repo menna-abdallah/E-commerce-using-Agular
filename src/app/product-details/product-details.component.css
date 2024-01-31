@@ -1,39 +1,132 @@
-.main {
-    width: 90%;
-    height: 80vh;
-    margin: auto;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-#instock {
-    padding: 5px 20px 5px 20px;
-    background-color: green;
-    border-radius: 50px;
+
+.flex-box{
+    display: flex;
+    width: 1000px;
+    margin: 110px auto;
 }
-#outstock {
-    padding: 5px 20px 5px 20px;
-    background-color: red;
-    border-radius: 50px;
+.left{
+    width: 40%;
+    margin-right: 20px;
 }
-.minfo {
-    padding: 5px 20px 5px 20px;
-    font-size: 16px;
-    border-radius: 50px;
+.big-img{
+    width:350px;
+    height: 250px;
 }
-.plusminusbtn {
-    padding:10px 0px 10px 0px;
-    border-radius: 50px;
+.big-img img{
+    width: inherit;
+    height: inherit;
 }
-.graybg {
-    background-color: rgb(197, 197, 197);
+.images{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 15px;
 }
-.buy {
-    color: white;
-    background-color: rgb(2, 80, 2);
+.small-img{
+    width: 70px;
+    overflow: hidden;
+    border: 1.5px solid rgb(217, 214, 214);
+    margin-right: 10px;
+    margin-left: 1px;
+    
 }
-.addcart {
-    color: rgb(2, 80, 2);
-    border: 1px solid rgb(2, 80, 2);
-    background-color: none;
-}
-.clickable:hover {
+.small-img img{
+    width: inherit;
     cursor: pointer;
+    object-fit:cover;
+    transition: all 0.3s ease;
+}
+.small-img:hover img{
+    transform: scale(1.2);
+}
+.url{
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(0, 102, 255);
+}
+.pname{
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+.price{
+    font-size: 20px;
+    font-weight: 500;
+    margin: 20px 0;
+}
+.size{
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+.size p{
+    font-size: 18px;
+    font-weight: 500;
+}
+.psize{
+    width: 60px;
+    height: 30px;
+    border: 1px solid #ff5e00;
+    color: #000;
+    text-align: center;
+    margin: 0 10px;
+    cursor: pointer;
+}
+.psize.active{
+    border-width: 1.5px;
+    color: #ff5e00;
+    font-weight: 500;
+}
+.btn-box1 {
+    font-size: 12px;
+    padding: 5px 10px;
+
+  }
+.quantity{
+    display: flex;
+}
+.quantity p{
+    font-size: 18px;
+    font-weight: 500;
+}
+.quantity input{
+    width: 40px;
+    font-size: 17px;
+    font-weight: 500;
+    text-align: center;
+    margin-left: 15px;
+    border: #ec1010;
+}
+.btn-box{
+    display: flex;
+    margin-top: 40px;
+}
+.btn-box button{
+    font-size: 18px;
+    padding: 8px 25px;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+}
+.cart-btn{
+    background-color: #ff5e00;
+    margin-right: 20px;
+}
+.buy-btn{
+    background-color: #00aeff;
+}
+.cart-btn:hover{
+    background-color: #ff3c00;
+}
+.buy-btn:hover{
+    background-color: #0066ff;
 }
