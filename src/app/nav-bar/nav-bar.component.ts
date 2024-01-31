@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgStyle } from '@angular/common';
+import { CounterService } from '../services/counter.service';
+
 
 
 
@@ -14,9 +16,15 @@ import { NgStyle } from '@angular/common';
   styleUrl: './nav-bar.component.css'
 })
 export class NavBarComponent {
+  constructor(private counterService: CounterService) {}
+  counter = 0;
+  ngOnInit() {
+    this.counterService
+      .getCounter()
+      .subscribe((value) => this.counter = value);
+  }
 
 }
 
-/*
-import { faTwitter,  faFacebookF, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
-<fa-icon [icon]="faGoogle">*/
+
+  

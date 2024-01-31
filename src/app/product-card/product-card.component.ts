@@ -7,6 +7,8 @@ import {FormsModule} from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { RatingComponent } from '../rating/rating.component';
+import { CounterService } from '../services/counter.service';
+
 
 @Component({
   selector: 'app-product-card',
@@ -16,21 +18,29 @@ import { RatingComponent } from '../rating/rating.component';
   styleUrl: './product-card.component.css'
 })
 export class ProductCardComponent {
-
+  counter = 0;
+  constructor(private router : Router , private counterService: CounterService){}
+  
   @Input() currentproduct!: any ;
 
   ngOnInit() {
     if (this.currentproduct) {
       this.currentproduct.rating = Math.floor(this.currentproduct.rating);
     }
+    this.counterService
+    .getCounter()
+    .subscribe((value) => (this.counter = value));
   }
 
-  constructor(private router : Router){}
 
   ShowDetails(id:string , name:string){
     this.router.navigate(['/product-details' , id , name])
 
   }
 
+  increaseCounter() {
+    this.counterService.updateCounter(this.counter + 1);
+  }
 }
+
 

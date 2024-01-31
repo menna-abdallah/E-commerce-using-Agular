@@ -2,7 +2,7 @@
 
 @if(currentproduct){
   
-    <p-card  [header]="currentproduct.category +   '   -   ' + currentproduct.price + ' $' " 
+    <p-card  [header]="currentproduct.title +   '   -   ' + currentproduct.price + ' $' " 
     [ngStyle]="{'width':'300px' ,'height':'auto', 'font-size':'12px' , 'font-weight':'smaller' , 'position' : 'relative'}">
         <ng-template pTemplate="header">
             <p-button *ngIf="currentproduct.stock > 0; else outBtn" label="In Stock" icon="pi pi-check" styleClass="p-button-success" ></p-button>
@@ -24,7 +24,7 @@
     
     <ng-template pTemplate="footer">
             <p-button class = "info" label="Show Details" icon="pi pi-search" severity="info"  (click)="ShowDetails(currentproduct.id , currentproduct.title)"></p-button>
-            <p-button label="add To Cart" icon="pi pi-bookmark" severity="warning"></p-button>
+            <p-button label="add To Cart" icon="pi pi-bookmark" severity="warning" (click)="increaseCounter()"></p-button>
         </ng-template>
     </p-card>
 
